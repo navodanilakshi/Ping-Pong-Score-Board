@@ -1,12 +1,14 @@
 const p1 = {
 	score: 0,
 	button: document.querySelector('#playerOne'),
-	span: document.querySelector('#one')
+	span: document.querySelector('#one'),
+	playerName: 'Player One'
 };
 const p2 = {
 	score: 0,
 	button: document.querySelector('#playerTwo'),
-	span: document.querySelector('#two')
+	span: document.querySelector('#two'),
+	playerName: 'Player Two'
 };
 const updateScore = (player, opponent) => {
 	if (!isGameOver) {
@@ -19,6 +21,7 @@ const updateScore = (player, opponent) => {
 			opponent.button.disabled = true;
 			reset.innerText = 'Play Again!';
 			select.selectedIndex = 0;
+			result.innerText = `${player.playerName} Won The Game!!!`;
 		}
 		player.span.textContent = player.score;
 	}
@@ -26,6 +29,7 @@ const updateScore = (player, opponent) => {
 
 const select = document.querySelector('#playingTo');
 const reset = document.querySelector('#reset');
+const result = document.querySelector('.result');
 let preference = 0;
 let isGameOver = false;
 
